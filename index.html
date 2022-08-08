@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Login</h1>
+        <form action="" onsubmit="return validateForm()">
+            <input type="text" placeholder="Enter your name" id="username"><br>
+            <p id="para"></p>
+            <input type="password" placeholder="Enter your password" id="password"> <br>
+            <p id="pass"></p>
+            <input type="submit" id="btn">
+        </form>
+    </div>
+
+
+    <script>
+        let username = document.getElementById('username');
+        let password = document.getElementById('password');
+        let flag = 1;
+
+        function validateForm() {
+            if (username.value == "") {
+                document.getElementById('para').innerHTML = "Username to daal bhai";
+                document.getElementById('para').style.color = "red";
+                // yaha error aayega isliye flag ko zero 0 set krenge
+                flag = 0;
+            }
+            else if (username.value.length < 3) {
+                document.getElementById('para').innerHTML = " kam se kam 3 character daalo bhai";
+                document.getElementById('para').style.color = "red";
+                // yaha error aayega isliye flag ko zero 0 set krenge
+                flag = 0
+            }
+            else {
+                document.getElementById('para').innerHTML = "";
+                // yaha error nhi aayega isliye flag ko 1 set krenge
+                flag = 1;
+            }
+
+            //password
+            if (password.value == "") {
+                document.getElementById('pass').innerHTML = "Password to daalo bhai";
+                document.getElementById('pass').style.color = "red";
+                // yaha error aayega isliye flag ko zero 0 set krenge
+                flag = 0;
+            }
+            else if (password.value.length < 3) {
+                document.getElementById('pass').innerHTML = " Password 3 char daalo bro";
+                document.getElementById('pass').style.color = "red";
+                // yaha error aayega isliye flag ko zero 0 set krenge
+                flag = 0
+            }
+            else {
+                document.getElementById('pass').innerHTML = "";
+                // yaha error nhi aayega isliye flag ko 1 set krenge
+                flag = 1
+            }
+
+
+            //agar flag = 1 , to true return krdo
+            if (flag) {
+                return true
+            }
+            //verna false
+            else {
+                return false
+            }
+        }
+
+    </script>
+</body>
+
+</html>
